@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF1221E82E70081D5D0 /* AppDelegate.swift */; };
-		57F72FF4221E82E70081D5D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF3221E82E70081D5D0 /* ViewController.swift */; };
+		57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */; };
 		57F72FF7221E82E70081D5D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F72FF5221E82E70081D5D0 /* Main.storyboard */; };
 		57F72FF9221E82E90081D5D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57F72FF8221E82E90081D5D0 /* Assets.xcassets */; };
 		57F72FFC221E82E90081D5D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F72FFA221E82E90081D5D0 /* LaunchScreen.storyboard */; };
 		57F73007221E82E90081D5D0 /* iquizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73006221E82E90081D5D0 /* iquizTests.swift */; };
 		57F73012221E82E90081D5D0 /* iquizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73011221E82E90081D5D0 /* iquizUITests.swift */; };
 		57F73022221E94900081D5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73021221E94900081D5D0 /* TableViewController.swift */; };
+		57F73025221EC7040081D5D0 /* iquiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 57F73024221EC7040081D5D0 /* iquiz.json */; };
+		57F73027221EC9D90081D5D0 /* ModController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73026221EC9D90081D5D0 /* ModController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,7 @@
 /* Begin PBXFileReference section */
 		57F72FEE221E82E70081D5D0 /* iquiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iquiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F72FF1221E82E70081D5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57F72FF3221E82E70081D5D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		57F72FF6221E82E70081D5D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		57F72FF8221E82E90081D5D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57F72FFB221E82E90081D5D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		57F73011221E82E90081D5D0 /* iquizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iquizUITests.swift; sourceTree = "<group>"; };
 		57F73013221E82E90081D5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F73021221E94900081D5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		57F73024221EC7040081D5D0 /* iquiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = iquiz.json; path = ../../../iquiz.json; sourceTree = "<group>"; };
+		57F73026221EC9D90081D5D0 /* ModController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		57F72FE5221E82E70081D5D0 = {
 			isa = PBXGroup;
 			children = (
+				57F73023221EC62A0081D5D0 /* Resources */,
 				57F72FF0221E82E70081D5D0 /* iquiz */,
 				57F73005221E82E90081D5D0 /* iquizTests */,
 				57F73010221E82E90081D5D0 /* iquizUITests */,
@@ -101,11 +106,12 @@
 			children = (
 				57F73021221E94900081D5D0 /* TableViewController.swift */,
 				57F72FF1221E82E70081D5D0 /* AppDelegate.swift */,
-				57F72FF3221E82E70081D5D0 /* ViewController.swift */,
+				57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */,
 				57F72FF5221E82E70081D5D0 /* Main.storyboard */,
 				57F72FF8221E82E90081D5D0 /* Assets.xcassets */,
 				57F72FFA221E82E90081D5D0 /* LaunchScreen.storyboard */,
 				57F72FFD221E82E90081D5D0 /* Info.plist */,
+				57F73026221EC9D90081D5D0 /* ModController.swift */,
 			);
 			path = iquiz;
 			sourceTree = "<group>";
@@ -126,6 +132,14 @@
 				57F73013221E82E90081D5D0 /* Info.plist */,
 			);
 			path = iquizUITests;
+			sourceTree = "<group>";
+		};
+		57F73023221EC62A0081D5D0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57F73024221EC7040081D5D0 /* iquiz.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57F73025221EC7040081D5D0 /* iquiz.json in Resources */,
 				57F72FFC221E82E90081D5D0 /* LaunchScreen.storyboard in Resources */,
 				57F72FF9221E82E90081D5D0 /* Assets.xcassets in Resources */,
 				57F72FF7221E82E70081D5D0 /* Main.storyboard in Resources */,
@@ -259,8 +274,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F72FF4221E82E70081D5D0 /* ViewController.swift in Sources */,
+				57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */,
 				57F73022221E94900081D5D0 /* TableViewController.swift in Sources */,
+				57F73027221EC9D90081D5D0 /* ModController.swift in Sources */,
 				57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

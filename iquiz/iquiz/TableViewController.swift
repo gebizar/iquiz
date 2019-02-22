@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-var subjects = ["Mathematics", "Marvel Super Heroes", "Science"]
-var subImNames = ["math", "marvel", "science"]
-var subjDesc = ["Test your algebraic, trignometric, and calculus knowledge!", "How super is your knowledge of pop superherodom?", "General Science Test!"]
+//var subjects = ["Mathematics", "Marvel Super Heroes", "Science"]
+var subImNames = ["science", "marvel", "math"]
+//var subjDesc = ["Test your algebraic, trignometric, and calculus knowledge!", "How super is your knowledge of pop superherodom?", "General Science Test!"]
 var currIndex = 0
 
 class TableViewController: UITableViewController {
@@ -29,15 +29,22 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subjects.count
+        return ModController.titleArray.count
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        ModController.loadJson()
+        self.tableView.reloadData()
+    }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = subjects[indexPath.row]
+        cell.textLabel?.text = ModController.titleArray[indexPath.row]
         let cellImage: UIImage = UIImage(named: subImNames[indexPath.row])!
         cell.imageView?.image = cellImage
-        cell.detailTextLabel?.text = subjDesc[indexPath.row]
+        cell.detailTextLabel?.text = ModController.descArray[indexPath.row]
         return cell
     }
     
@@ -45,4 +52,5 @@ class TableViewController: UITableViewController {
         currIndex = indexPath.row
         performSegue(withIdentifier: "segue", sender: self)
     }
+    
 }
