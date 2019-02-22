@@ -17,6 +17,8 @@
 		57F73022221E94900081D5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73021221E94900081D5D0 /* TableViewController.swift */; };
 		57F73025221EC7040081D5D0 /* iquiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 57F73024221EC7040081D5D0 /* iquiz.json */; };
 		57F73027221EC9D90081D5D0 /* ModController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73026221EC9D90081D5D0 /* ModController.swift */; };
+		57F7302922201EB10081D5D0 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F7302822201EB10081D5D0 /* AnswerViewController.swift */; };
+		57F7302B22201F010081D5D0 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F7302A22201F010081D5D0 /* FinishViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		57F73021221E94900081D5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		57F73024221EC7040081D5D0 /* iquiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = iquiz.json; path = ../../../iquiz.json; sourceTree = "<group>"; };
 		57F73026221EC9D90081D5D0 /* ModController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModController.swift; sourceTree = "<group>"; };
+		57F7302822201EB10081D5D0 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
+		57F7302A22201F010081D5D0 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				57F72FFA221E82E90081D5D0 /* LaunchScreen.storyboard */,
 				57F72FFD221E82E90081D5D0 /* Info.plist */,
 				57F73026221EC9D90081D5D0 /* ModController.swift */,
+				57F7302822201EB10081D5D0 /* AnswerViewController.swift */,
+				57F7302A22201F010081D5D0 /* FinishViewController.swift */,
 			);
 			path = iquiz;
 			sourceTree = "<group>";
@@ -276,8 +282,10 @@
 			files = (
 				57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */,
 				57F73022221E94900081D5D0 /* TableViewController.swift in Sources */,
+				57F7302922201EB10081D5D0 /* AnswerViewController.swift in Sources */,
 				57F73027221EC9D90081D5D0 /* ModController.swift in Sources */,
 				57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */,
+				57F7302B22201F010081D5D0 /* FinishViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

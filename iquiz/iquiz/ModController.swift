@@ -22,11 +22,21 @@ class ModController: NSObject {
         var questions: [questions]
     }
     
-    
+    // holds a var to check against the total number of questions which is the count of questions in a quiz
     static var question: Int = 0
+    // for tracking on the answer page
     static var numRight: Int = 0
+    // Holds all the cell titles
     static var titleArray:Array<String> = []
+    // Holds all the descriptions for the cells
     static var descArray:[String] = []
+    // describes the full set of all quizes to switch between
+    static var currSet: [quiz] = []
+    // describes the current quiz the user is on
+    static var currQuiz: quiz?
+    
+    static var gotCorrect: Bool = false
+    
     
     class func loadJson() {
         guard let url = Bundle.main.url(forResource: "iquiz", withExtension: "json") else {
@@ -35,20 +45,21 @@ class ModController: NSObject {
         }
         do {
             let data = try Data(contentsOf: url)
-            
             let jsonData = try JSONDecoder().decode([quiz].self, from:data)
-            if let JSONString = String(data:data, encoding: String.Encoding.utf8) {
-                print(JSONString)
-            }
-            print(jsonData)
             for quiz in jsonData {
                 titleArray.append(quiz.title!)
                 descArray.append(quiz.desc!)
+                currSet.append(quiz)
             }
-            
+            currQuiz = currSet[0]
         } catch let error {
-            print(error, "123123123")
+            print(error)
         }
+        
+    }
+    
+    class func selectQuiz(_ setNum: Int) {
+        currQuiz = currSet[setNum]
         
     }
     

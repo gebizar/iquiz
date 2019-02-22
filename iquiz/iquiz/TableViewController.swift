@@ -50,6 +50,8 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currIndex = indexPath.row
+        ModController.selectQuiz(currIndex)
+        print(ModController.currQuiz)
         performSegue(withIdentifier: "segue", sender: self)
     }
     
