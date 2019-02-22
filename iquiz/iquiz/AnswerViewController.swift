@@ -12,7 +12,12 @@ class AnswerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.addSubview(headerText)
+        view.addSubview(countText)
+        view.addSubview(qText)
+        view.addSubview(answerText)
+        view.addSubview(finishButton)
+        setupMain()
         // Do any additional setup after loading the view.
     }
     
@@ -36,25 +41,67 @@ class AnswerViewController: UIViewController {
     
     let qText: UILabel = {
         let retText = UILabel()
-        retText.text = "Question: " + ModController.currQuiz!.questions[ModController.question - 1].text!
+        retText.font = retText.font.withSize(12)
+        retText.text = "The question was: " + ModController.currQuiz!.questions[ModController.question - 1].text!
         retText.adjustsFontSizeToFitWidth = true
         retText.translatesAutoresizingMaskIntoConstraints = false
         return retText
     }()
     
-    let answerTextText: UILabel = {
+    let answerText: UILabel = {
         let retText = UILabel()
-        let correctAnswerIndex: Int = Int(ModController.currQuiz?.questions[ModController.question-1].answer!)!
-        let correctAnswer: String = ModController.currQuiz?.questions[ModController.question-1].answers[correctAnswerIndex]
+        let correctAnswerIndex: Int = Int(ModController.currQuiz!.questions[ModController.question-1].answer!)!
+        let correctAnswer: String = ModController.currQuiz!.questions[ModController.question-1].answers[correctAnswerIndex - 1]!
+        retText.font = retText.font.withSize(12)
         if ModController.gotCorrect {
-            
-
+            retText.text = "Correct! The answer you provided was: \(correctAnswer)"
+            retText.textColor = .green
+        } else {
+            retText.text = "Incorrect! The correct answer is: \(correctAnswer)"
+            retText.textColor = .red
         }
         retText.adjustsFontSizeToFitWidth = true
         retText.translatesAutoresizingMaskIntoConstraints = false
         
         return retText
     }()
+    
+    let finishButton: UIButton = {
+        let retButton = UIButton()
+        retButton.setTitle("Next", for: .normal)
+        retButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        retButton.setTitleColor(.white, for: .normal)
+        retButton.backgroundColor = .black
+        retButton.layer.cornerRadius = 5
+        retButton.layer.borderWidth = 1
+        retButton.layer.borderColor = UIColor.black.cgColor
+        retButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        retButton.translatesAutoresizingMaskIntoConstraints = false
+//        retButton.addTarget(self, action: #selector(QuestionViewController.chooseAnswer), for: .touchUpInside)
+        return retButton
+    }()
+    
+    private func setupMain() {
+        headerText.topAnchor.constraint(equalTo: view.topAnchor, constant: 55).isActive = true
+        headerText.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        countText.topAnchor.constraint(equalTo: headerText.bottomAnchor, constant: 15).isActive = true
+        countText.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        qText.topAnchor.constraint(equalTo:countText.bottomAnchor, constant: 25).isActive = true
+        qText.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        answerText.topAnchor.constraint(equalTo:qText.bottomAnchor, constant: 25).isActive = true
+        answerText.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
+        finishButton.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant: -35).isActive = true
+        finishButton.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
+
+    }
+    
+    @objc func nextScene() {
+        if ModController.question == ModController.currQuiz?.questions.count {
+            performSegue(withIdentifier: "toFinish", sender: nil)
+        } else {
+            performSegue(withIdentifier: "backQuestion", sender: nil)
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -178,10 +178,13 @@ class QuestionViewController: UIViewController {
         let lastChar = confirmationText.text!.last!
         if let num = Int(String(lastChar)) {
             ModController.question += 1
-            ModController.currQuiz = ModController.currSet[ModController.question]
-            if let ansNum = Int(ModController.currQuiz!.questions[ModController.question - 1].answer!) {
-                print(ansNum == num)
-                ModController.gotCorrect = (ansNum == num)
+            if let ansNum = Int(ModController.currQuiz!.questions[ModController.question - 1].answer!)  {
+                print(ansNum - 1)
+                print(num)
+                ModController.gotCorrect = ((ansNum - 1) == num)
+            }
+            if ModController.gotCorrect {
+                ModController.numRight += 1
             }
             performSegue(withIdentifier: "toAnswer", sender: nil)
 
