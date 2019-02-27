@@ -17,13 +17,19 @@ class AnswerViewController: UIViewController {
         view.addSubview(qText)
         view.addSubview(answerText)
         view.addSubview(finishButton)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipGest))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipGest))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
         setupMain()
         // Do any additional setup after loading the view.
     }
     
     let headerText: UILabel = {
         let retText = UILabel()
-        retText.text = "Category " + ModController.currQuiz!.title!
+        retText.text = "Category " + ModController.currQuiz!.title
         retText.adjustsFontSizeToFitWidth = true
         retText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -42,7 +48,7 @@ class AnswerViewController: UIViewController {
     let qText: UILabel = {
         let retText = UILabel()
         retText.font = retText.font.withSize(12)
-        retText.text = "The question was: " + ModController.currQuiz!.questions[ModController.question - 1].text!
+        retText.text = "The question was: " + ModController.currQuiz!.questions[ModController.question - 1].text
         retText.adjustsFontSizeToFitWidth = true
         retText.translatesAutoresizingMaskIntoConstraints = false
         return retText
@@ -50,8 +56,8 @@ class AnswerViewController: UIViewController {
     
     let answerText: UILabel = {
         let retText = UILabel()
-        let correctAnswerIndex: Int = Int(ModController.currQuiz!.questions[ModController.question-1].answer!)!
-        let correctAnswer: String = ModController.currQuiz!.questions[ModController.question-1].answers[correctAnswerIndex - 1]!
+        let correctAnswerIndex: Int = Int(ModController.currQuiz!.questions[ModController.question-1].answer)!
+        let correctAnswer: String = ModController.currQuiz!.questions[ModController.question-1].answers[correctAnswerIndex - 1]
         retText.font = retText.font.withSize(12)
         if ModController.gotCorrect {
             retText.text = "Correct! The answer you provided was: \(correctAnswer)"
@@ -77,7 +83,7 @@ class AnswerViewController: UIViewController {
         retButton.layer.borderColor = UIColor.black.cgColor
         retButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         retButton.translatesAutoresizingMaskIntoConstraints = false
-//        retButton.addTarget(self, action: #selector(QuestionViewController.chooseAnswer), for: .touchUpInside)
+        retButton.addTarget(self, action: #selector(AnswerViewController.nextScene), for: .touchUpInside)
         return retButton
     }()
     
@@ -100,6 +106,20 @@ class AnswerViewController: UIViewController {
             performSegue(withIdentifier: "toFinish", sender: nil)
         } else {
             performSegue(withIdentifier: "backQuestion", sender: nil)
+        }
+    }
+    
+    @objc func swipGest(gesture:UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.right:
+                nextScene()
+            case UISwipeGestureRecognizer.Direction.left:
+                ModController.restartGame()
+                performSegue(withIdentifier: "exitAnswer", sender: nil)
+            default:
+                break
+            }
         }
     }
 

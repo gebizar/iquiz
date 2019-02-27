@@ -18,7 +18,12 @@ class QuestionViewController: UIViewController {
         view.addSubview(retView)
         view.addSubview(confirmationText)
         view.addSubview(submitButton)
-        
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.swipGest))
+        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+        self.view.addGestureRecognizer(swipeRight)
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.swipGest))
+        swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+        self.view.addGestureRecognizer(swipeLeft)
         setupMain()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -31,7 +36,7 @@ class QuestionViewController: UIViewController {
     
     let headerText: UILabel = {
         let retText = UILabel()
-        retText.text = "Category " + ModController.currQuiz!.title!
+        retText.text = "Category " + ModController.currQuiz!.title
         retText.adjustsFontSizeToFitWidth = true
         retText.translatesAutoresizingMaskIntoConstraints = false
         
@@ -49,7 +54,7 @@ class QuestionViewController: UIViewController {
     
     let qText: UILabel = {
         let retText = UILabel()
-        retText.text = "Question: " + ModController.currQuiz!.questions[ModController.question].text!
+        retText.text = "Question: " + ModController.currQuiz!.questions[ModController.question].text
         retText.adjustsFontSizeToFitWidth = true
         retText.translatesAutoresizingMaskIntoConstraints = false
         return retText
@@ -105,7 +110,7 @@ class QuestionViewController: UIViewController {
         confirmationText.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         for (index, answer) in ModController.currQuiz!.questions[ModController.question].answers.enumerated() {
-            let toAdd:UIView = createAnswer(index, answer!)
+            let toAdd:UIView = createAnswer(index, answer)
             answerSet.append(toAdd)
         }
         
@@ -128,7 +133,7 @@ class QuestionViewController: UIViewController {
         let toAddLabel: UILabel = {
             let retText = UILabel()
             retText.font = retText.font.withSize(12)
-            let tempText = ModController.currQuiz?.questions[ModController.question].answers[represents]!
+            let tempText = ModController.currQuiz?.questions[ModController.question].answers[represents]
             retText.text = "\(val). \(tempText!)"
             retText.adjustsFontSizeToFitWidth = true
             retText.translatesAutoresizingMaskIntoConstraints = false
@@ -175,13 +180,13 @@ class QuestionViewController: UIViewController {
     }
 
     @objc func nextScene() {
-        let lastChar = confirmationText.text!.last!
-        if let num = Int(String(lastChar)) {
+//        let lastChar = confirmationText.text!.last!
+        if selected != 0 {
             ModController.question += 1
-            if let ansNum = Int(ModController.currQuiz!.questions[ModController.question - 1].answer!)  {
-                print(ansNum - 1)
-                print(num)
-                ModController.gotCorrect = ((ansNum - 1) == num)
+            if let ansNum = Int(ModController.currQuiz!.questions[ModController.question - 1].answer)  {
+                print("ANSWER NUMBER", ansNum)
+                print("SELECTED", selected)
+                ModController.gotCorrect = ((ansNum) == selected)
             }
             if ModController.gotCorrect {
                 ModController.numRight += 1
@@ -190,6 +195,20 @@ class QuestionViewController: UIViewController {
 
         } else {
             print("Nothing selected")
+        }
+    }
+    
+    @objc func swipGest(gesture:UIGestureRecognizer) {
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.right:
+                nextScene()
+            case UISwipeGestureRecognizer.Direction.left:
+                ModController.restartGame()
+                performSegue(withIdentifier: "exitQuestion", sender: nil)
+            default:
+                break
+            }
         }
     }
 }

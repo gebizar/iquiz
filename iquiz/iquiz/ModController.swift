@@ -11,14 +11,14 @@ import UIKit
 class ModController: NSObject {
     
     struct questions: Codable {
-        var text: String?
-        var answer: String?
-        var answers: [String?]
+        var text: String
+        var answer: String
+        var answers: [String]
     }
     
     struct quiz: Codable{
-        var title: String?
-        var desc: String?
+        var title: String
+        var desc: String
         var questions: [questions]
     }
     
@@ -34,24 +34,39 @@ class ModController: NSObject {
     static var currSet: [quiz] = []
     // describes the current quiz the user is on
     static var currQuiz: quiz?
-    
+    static var loaded: Bool = false
     static var gotCorrect: Bool = false
+    static var offline: Bool = false
     
     
     class func loadJson() {
-        guard let url = Bundle.main.url(forResource: "iquiz", withExtension: "json") else {
-            print("Unable to find file")
-            return
-        }
         do {
-            let data = try Data(contentsOf: url)
-            let jsonData = try JSONDecoder().decode([quiz].self, from:data)
-            for quiz in jsonData {
-                titleArray.append(quiz.title!)
-                descArray.append(quiz.desc!)
-                currSet.append(quiz)
+              if let x = UserDefaults.standard.object(forKey:"read") as? String {
+                let jsonData = try JSONDecoder().decode([quiz].self, from: x.data(using:.utf8)!)
+                print("JSON DATA", jsonData)
+                for quiz in jsonData {
+                    titleArray.append(quiz.title)
+                    descArray.append(quiz.desc)
+                    currSet.append(quiz)
+                }
+                currQuiz = currSet[0]            }
+            else {
+                offline = true
+                print("Defaulting to regular json file use Offline: \(offline)")
+                guard let url = Bundle.main.url(forResource: "iquiz", withExtension: "json") else {
+                    print("Unable to find file")
+                    return
+                }
+                let data = try Data(contentsOf: url)
+                let jsonData = try JSONDecoder().decode([quiz].self, from: data)
+                for quiz in jsonData {
+                    titleArray.append(quiz.title)
+                    descArray.append(quiz.desc)
+                    currSet.append(quiz)
+                }
+                currQuiz = currSet[0]
             }
-            currQuiz = currSet[0]
+           
         } catch let error {
             print(error)
         }
@@ -64,8 +79,10 @@ class ModController: NSObject {
     }
     
     class func restartGame() {
-        titleArray = []
-        descArray = []
+        question = 0
+        numRight = 0
+        currQuiz = nil
+        gotCorrect = false
     }
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570B9BB922256ADA00ADBFE5 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B9BB822256ADA00ADBFE5 /* PopOverViewController.swift */; };
 		57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF1221E82E70081D5D0 /* AppDelegate.swift */; };
 		57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */; };
 		57F72FF7221E82E70081D5D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F72FF5221E82E70081D5D0 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		570B9BB822256ADA00ADBFE5 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		57F72FEE221E82E70081D5D0 /* iquiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iquiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F72FF1221E82E70081D5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				57F73026221EC9D90081D5D0 /* ModController.swift */,
 				57F7302822201EB10081D5D0 /* AnswerViewController.swift */,
 				57F7302A22201F010081D5D0 /* FinishViewController.swift */,
+				570B9BB822256ADA00ADBFE5 /* PopOverViewController.swift */,
 			);
 			path = iquiz;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */,
 				57F73022221E94900081D5D0 /* TableViewController.swift in Sources */,
+				570B9BB922256ADA00ADBFE5 /* PopOverViewController.swift in Sources */,
 				57F7302922201EB10081D5D0 /* AnswerViewController.swift in Sources */,
 				57F73027221EC9D90081D5D0 /* ModController.swift in Sources */,
 				57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */,
