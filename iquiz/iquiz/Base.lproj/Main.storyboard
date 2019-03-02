@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--iQuiz-->
+        <!--Table View Controller-->
         <scene sceneID="sPI-Hf-7tJ">
             <objects>
                 <tableViewController id="1tV-ec-bv8" customClass="TableViewController" customModule="iquiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,13 +61,6 @@
                             <outlet property="delegate" destination="1tV-ec-bv8" id="76R-hb-BJR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iQuiz" id="CJt-Nh-nE9">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="cWD-6Y-8Iw">
-                            <connections>
-                                <action selector="settingsPress:" destination="1tV-ec-bv8" id="KnL-nZ-MOk"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="6jf-io-9xZ" kind="show" identifier="segue" id="OfR-dT-3nU"/>
@@ -185,7 +178,7 @@
             </objects>
             <point key="canvasLocation" x="2886" y="27"/>
         </scene>
-        <!--Finish View Controller-->
+        <!--iQuiz-->
         <scene sceneID="Sqm-9B-fDn">
             <objects>
                 <viewController id="dvb-RC-Wa2" customClass="FinishViewController" customModule="iquiz" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +188,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="vwy-NV-26Q"/>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationItem key="navigationItem" title="iQuiz" id="CJt-Nh-nE9">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="cWD-6Y-8Iw">
+                            <connections>
+                                <action selector="settingsPress:" destination="1tV-ec-bv8" id="KnL-nZ-MOk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="1tV-ec-bv8" kind="show" identifier="exitFinish" id="4f9-Yv-Xb9"/>
@@ -208,6 +208,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="OfR-dT-3nU"/>
-        <segue reference="fPu-nL-xu5"/>
+        <segue reference="4f9-Yv-Xb9"/>
     </inferredMetricsTieBreakers>
 </document>

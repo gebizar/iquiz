@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		570B9BB922256ADA00ADBFE5 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B9BB822256ADA00ADBFE5 /* PopOverViewController.swift */; };
-		57B46C13222B238200B0FC55 /* iquiz.json in Sources */ = {isa = PBXBuildFile; fileRef = 57F73024221EC7040081D5D0 /* iquiz.json */; };
+		57B46C15222B4DC900B0FC55 /* iquiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B46C14222B4DC900B0FC55 /* iquiz.json */; };
+		57B46C16222B4DFA00B0FC55 /* iquiz.json in Sources */ = {isa = PBXBuildFile; fileRef = 57B46C14222B4DC900B0FC55 /* iquiz.json */; };
 		57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF1221E82E70081D5D0 /* AppDelegate.swift */; };
 		57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */; };
 		57F72FF7221E82E70081D5D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F72FF5221E82E70081D5D0 /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		57F73007221E82E90081D5D0 /* iquizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73006221E82E90081D5D0 /* iquizTests.swift */; };
 		57F73012221E82E90081D5D0 /* iquizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73011221E82E90081D5D0 /* iquizUITests.swift */; };
 		57F73022221E94900081D5D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73021221E94900081D5D0 /* TableViewController.swift */; };
-		57F73025221EC7040081D5D0 /* iquiz.json in Resources */ = {isa = PBXBuildFile; fileRef = 57F73024221EC7040081D5D0 /* iquiz.json */; };
 		57F73027221EC9D90081D5D0 /* ModController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F73026221EC9D90081D5D0 /* ModController.swift */; };
 		57F7302922201EB10081D5D0 /* AnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F7302822201EB10081D5D0 /* AnswerViewController.swift */; };
 		57F7302B22201F010081D5D0 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F7302A22201F010081D5D0 /* FinishViewController.swift */; };
@@ -42,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		570B9BB822256ADA00ADBFE5 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
+		57B46C14222B4DC900B0FC55 /* iquiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = iquiz.json; sourceTree = "<group>"; };
 		57F72FEE221E82E70081D5D0 /* iquiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iquiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F72FF1221E82E70081D5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		57F73011221E82E90081D5D0 /* iquizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iquizUITests.swift; sourceTree = "<group>"; };
 		57F73013221E82E90081D5D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57F73021221E94900081D5D0 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		57F73024221EC7040081D5D0 /* iquiz.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = iquiz.json; path = ../../../iquiz.json; sourceTree = "<group>"; };
 		57F73026221EC9D90081D5D0 /* ModController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModController.swift; sourceTree = "<group>"; };
 		57F7302822201EB10081D5D0 /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		57F7302A22201F010081D5D0 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		57F73023221EC62A0081D5D0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				57F73024221EC7040081D5D0 /* iquiz.json */,
+				57B46C14222B4DC900B0FC55 /* iquiz.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F73025221EC7040081D5D0 /* iquiz.json in Resources */,
+				57B46C15222B4DC900B0FC55 /* iquiz.json in Resources */,
 				57F72FFC221E82E90081D5D0 /* LaunchScreen.storyboard in Resources */,
 				57F72FF9221E82E90081D5D0 /* Assets.xcassets in Resources */,
 				57F72FF7221E82E70081D5D0 /* Main.storyboard in Resources */,
@@ -284,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57B46C13222B238200B0FC55 /* iquiz.json in Sources */,
+				57B46C16222B4DFA00B0FC55 /* iquiz.json in Sources */,
 				57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */,
 				57F73022221E94900081D5D0 /* TableViewController.swift in Sources */,
 				570B9BB922256ADA00ADBFE5 /* PopOverViewController.swift in Sources */,
