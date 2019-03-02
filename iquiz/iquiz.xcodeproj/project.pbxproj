@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		570B9BB922256ADA00ADBFE5 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570B9BB822256ADA00ADBFE5 /* PopOverViewController.swift */; };
+		57B46C13222B238200B0FC55 /* iquiz.json in Sources */ = {isa = PBXBuildFile; fileRef = 57F73024221EC7040081D5D0 /* iquiz.json */; };
 		57F72FF2221E82E70081D5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF1221E82E70081D5D0 /* AppDelegate.swift */; };
 		57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F72FF3221E82E70081D5D0 /* QuestionViewController.swift */; };
 		57F72FF7221E82E70081D5D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F72FF5221E82E70081D5D0 /* Main.storyboard */; };
@@ -283,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57B46C13222B238200B0FC55 /* iquiz.json in Sources */,
 				57F72FF4221E82E70081D5D0 /* QuestionViewController.swift in Sources */,
 				57F73022221E94900081D5D0 /* TableViewController.swift in Sources */,
 				570B9BB922256ADA00ADBFE5 /* PopOverViewController.swift in Sources */,
