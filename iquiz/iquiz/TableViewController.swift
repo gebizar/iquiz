@@ -97,6 +97,7 @@ class TableViewController: UITableViewController {
 //                    if let x = UserDefaults.standard.object(forKey:"read") as? String {
 //                        print("TEST123", x)
 //                    }
+                    ModController.offline = false
                 }
             } catch let error2 {
                 print(error2)
